@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "name": "Auto Butler",
+    "boat_type": "Motor Boat",
+    "service": "Engine Repair",
+    "review": "Good service",
+    "job_type": "Normal"
+  },
+  {
+    "id": "2",
+    "name": "CPH boat workshop",
+    "boat_type": "Sail Boat",
+    "service": "Sail Repair",
+    "review": "Too slow service",
+    "job_type": "Emergency"
+  },
+  {
+    "id": "3",
+    "name": "AZ auto service",
+    "boat_type": "Yacht",
+    "service": "Painting",
+    "review": "Timely deliver",
+    "job_type": "Normal"
+  }
+]
