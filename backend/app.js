@@ -10,9 +10,11 @@ app.use(cookieParser());
 //Import all routes
 const jobProposals = require("./routes/proposals");
 const auth = require("./routes/auth");
+const product= require('./routes/product')
 
 app.use("/api", jobProposals);
 app.use("/api", auth);
+app.use('/api', product);
 
 // Middleware to handle errors
 app.use(errorMiddleware);
