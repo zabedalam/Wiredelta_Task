@@ -10,7 +10,11 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   const user = await User.create({
     name,
     email,
-    password
+    password,
+    avatar: {
+      public_id: "products/airpords_e5cqqr",
+      url: "https://res.cloudinary.com/bookit/image/upload/v1606231282/products/airpords_e5cqqr.jpg"
+    }
   });
 
   sendToken(user, 200, res);
