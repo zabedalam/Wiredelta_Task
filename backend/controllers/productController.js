@@ -4,7 +4,8 @@ const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 const APIFeatures = require("../utils/apiFeatures");
 //Get all products=>/api/products?keyword=apple
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
-  const resPerPage = 4;
+  // return next(new ErrorHandler("My Error", 400));
+  const resPerPage = 8;
   const productsCount = await Product.countDocuments();
 
   const apiFeatures = new APIFeatures(Product.find(), req.query)
@@ -15,15 +16,16 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
   let filteredProductsCount = products.length;
   apiFeatures.pagination(resPerPage);
   products = await apiFeatures.query;
-
-  res.status(200).json({
-    success: true,
-    // message:'This route will show all products in database'
-    // count: products.length,
-    productsCount,
-    resPerPage,
-    filteredProductsCount,
-    products
+  setTimeout(() => {
+    res.status(200).json({
+      success: true,
+      // message:'This route will show all products in database'
+      // count: products.length,
+      productsCount,
+      resPerPage,
+      filteredProductsCount,
+      products
+    });
   });
 });
 
