@@ -9,7 +9,9 @@ const Header = () => {
       <nav className="navbar row">
         <div className="col-12 col-md-3">
           <div className="navbar-brand">
-            <img src="./images/shopit_logo.png" />
+            <Link to="/">
+              <img src="./images/shopit_logo.png" />
+            </Link>
           </div>
         </div>
 
@@ -18,9 +20,9 @@ const Header = () => {
         </div>
 
         <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-          <button className="btn" id="login_btn">
+          <Link to="/login" className="btn ml-4" id="login_btn">
             Login
-          </button>
+          </Link>
 
           <span id="cart" className="ml-3">
             Cart
