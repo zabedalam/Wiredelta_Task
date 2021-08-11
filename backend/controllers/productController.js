@@ -5,7 +5,7 @@ const APIFeatures = require("../utils/apiFeatures");
 //Get all products=>/api/products?keyword=apple
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
   // return next(new ErrorHandler("My Error", 400));
-  const resPerPage = 8;
+  const resPerPage = 4;
   const productsCount = await Product.countDocuments();
 
   const apiFeatures = new APIFeatures(Product.find(), req.query)
