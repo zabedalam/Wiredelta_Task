@@ -8,9 +8,9 @@ import {
   loadUser,
   clearErrors
 } from "../../actions/userActions";
-import { UPDATE_PROFILE_REQUEST } from "../../constants/userConstants";
+import { UPDATE_PROFILE_RESET } from "../../constants/userConstants";
 
-const UpdateProfile = ({ history}) => {
+const UpdateProfile = ({ history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -42,7 +42,7 @@ const UpdateProfile = ({ history}) => {
       history.push("/me");
 
       dispatch({
-        type: UPDATE_PROFILE_REQUEST
+        type: UPDATE_PROFILE_RESET
       });
     }
   }, [dispatch, alert, error, history, isUpdated]);
@@ -71,6 +71,7 @@ const UpdateProfile = ({ history}) => {
   };
   return (
     <Fragment>
+      <MetaData title={"Update Profile"} />
       <div className="row wrapper">
         <div className="col-10 col-lg-5">
           <form
@@ -135,7 +136,7 @@ const UpdateProfile = ({ history}) => {
             <button
               type="submit"
               className="btn update-btn btn-block mt-4 mb-3"
-              disable={loading ? true : false}
+              disabled={loading ? true : false}
             >
               Update
             </button>

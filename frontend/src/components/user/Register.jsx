@@ -141,7 +141,7 @@ const Register = ({ history }) => {
               id="register_button"
               type="submit"
               className="btn btn-block py-3"
-              disable={loading ? true : false}
+              disabled={loading ? true : false}
             >
               REGISTER
             </button>
