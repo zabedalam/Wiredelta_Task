@@ -7,7 +7,8 @@ import ProductDetails from "./components/product/ProductDetails.jsx";
 import Login from "./components/user/Login";
 import Register from "./components/user/Register";
 import Profile from "./components/user/Profile";
-
+import UpdateProfile from "./components/user/UpdateProfile";
+import ProtectedRoute from "./components/route/ProtectedRoute";
 import { loadUser } from "./actions/userActions";
 import store from "./store";
 import axios from "axios";
@@ -24,8 +25,8 @@ function App() {
         <Route path="/search/:keyword" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/me" component={Profile} />
-
+        <ProtectedRoute path="/me" component={Profile} exact />
+        <ProtectedRoute path="/me/update" component={UpdateProfile} exact />
 
         <Route path="/product/:id" component={ProductDetails} exact />
       </div>
