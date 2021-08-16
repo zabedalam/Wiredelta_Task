@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Home from "./components/Home/Home";
+import Cart from "./components/cart/Cart";
+
 import ProductDetails from "./components/product/ProductDetails.jsx";
 import Login from "./components/user/Login";
 import Register from "./components/user/Register";
@@ -27,6 +29,8 @@ function App() {
       <Header />
       <div className="container container-fluid">
         <Route path="/" component={Home} exact />
+        <Route path="/cart" component={Cart} exact />
+
         <Route path="/search/:keyword" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
