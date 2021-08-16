@@ -129,7 +129,7 @@ export const userReducer = (state = {}, action) => {
   }
 };
 
-export const forgorPasswordReducer = (state = {}, action) => {
+export const forgotPasswordReducer = (state = {}, action) => {
   switch (action.type) {
     case FORGOT_PASSWORD_REQUEST:
     case NEW_PASSWORD_REQUEST:
