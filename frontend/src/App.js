@@ -4,6 +4,8 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Home from "./components/Home/Home";
 import Cart from "./components/cart/Cart";
+import Shipping from "./components/cart/Shipping";
+import ConfirmOrder from "./components/cart/ConfirmOrder";
 
 import ProductDetails from "./components/product/ProductDetails.jsx";
 import Login from "./components/user/Login";
@@ -30,6 +32,8 @@ function App() {
       <div className="container container-fluid">
         <Route path="/" component={Home} exact />
         <Route path="/cart" component={Cart} exact />
+        <ProtectedRoute path="/shipping" component={Shipping} />
+        <ProtectedRoute path="/order/confirm" component={ConfirmOrder} />
 
         <Route path="/search/:keyword" component={Home} />
         <Route path="/login" component={Login} />

@@ -4,7 +4,7 @@ import MetaData from "../layout/MetaData";
 import { userAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart, removeItemFromCart } from "../../actions/cartActions";
-const Cart = () => {
+const Cart = ({history}) => {
   const dispatch = useDispatch();
 
   const { cartItems } = useSelector(state => state.cart);
@@ -27,6 +27,10 @@ const Cart = () => {
     if (newQty <= 0) return;
 
     dispatch(addItemToCart(id, newQty));
+  };
+
+  const checkoutHandler = () => {
+    history.push("/login?redirect=shipping");
   };
   return (
     <Fragment>
@@ -139,7 +143,11 @@ const Cart = () => {
                 </p>
 
                 <hr />
-                <button id="checkout_btn" className="btn btn-primary btn-block">
+                <button
+                  id="checkout_btn"
+                  className="btn btn-primary btn-block"
+                  onClick={checkoutHandler}
+                >
                   Check out
                 </button>
               </div>
