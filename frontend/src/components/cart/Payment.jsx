@@ -3,7 +3,7 @@ import MetaData from "../layout/MetaData";
 import CheckoutSteps from "./CheckoutSteps";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
-import { saveShippingInfo } from "../../actions/cartActions";
+import { createOrder, clearErrors } from "../../actions/orderActions";
 import {
   useStripe,
   useElements,
@@ -32,8 +32,14 @@ const Payment = ({ history }) => {
 
   const { user } = useSelector(state => state.auth);
   const { cartItems, shippingInfo } = useSelector(state => state.cart);
+  const { error } = useSelector(state => state.newOrder);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+  }, [dispatch, alert, error]);
 
   const order = {
     orderItems: cartItems,
@@ -97,6 +103,7 @@ const Payment = ({ history }) => {
             status: result.paymentIntent.status
           };
 
+          dispatch(createOrder(order));
           history.push("/success");
         } else {
           alert.error("There is some issue while payment processing");
