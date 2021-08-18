@@ -17,11 +17,13 @@ const jobProposals = require("./routes/proposals");
 const auth = require("./routes/auth");
 const product = require("./routes/product");
 const order = require("./routes/order");
+const payment = require("./routes/payment");
 
 app.use("/api", jobProposals);
 app.use("/api", auth);
 app.use("/api", product);
 app.use("/api", order);
+app.use("/api", payment);
 
 // Middleware to handle errors
 app.use(errorMiddleware);
