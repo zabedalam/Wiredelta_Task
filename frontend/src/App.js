@@ -10,6 +10,7 @@ import Payment from "./components/cart/Payment";
 import OrderSuccess from "./components/cart/OrderSuccess";
 
 import ListOrders from "./components/order/ListOrders";
+import OrderDetails from "./components/order/OrderDetails";
 
 import ProductDetails from "./components/product/ProductDetails.jsx";
 import Login from "./components/user/Login";
@@ -75,6 +76,7 @@ function App() {
         />
 
         <ProtectedRoute path="/orders/me" component={ListOrders} exact />
+        <ProtectedRoute path="/order/:id" component={OrderDetails} exact />
 
         <Route path="/product/:id" component={ProductDetails} exact />
       </div>
