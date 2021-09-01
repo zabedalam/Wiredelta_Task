@@ -104,7 +104,7 @@ exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
 
   const review = {
     user: req.user._id,
-    name: req.body.name,
+    name: req.user.name,
     rating: Number(rating),
     comment
   };
@@ -121,10 +121,10 @@ exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
         review.comment = comment;
         review.rating = rating;
       }
-    });
+    })
   } else {
     product.reviews.push(review);
-    product.numberOfReviews = product.reviews.length;
+    product.numOfReviews = product.reviews.length;
   }
 
   product.ratings =
